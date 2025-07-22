@@ -30,7 +30,7 @@ const int WINDOW_WIDTH = 1280;
 const int WINDOW_HEIGHT = 720;
 
 int main() {
-    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "2D gravity project");
+    sf::RenderWindow window = sf::RenderWindow(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Gravr");
     sf::Font font("../assets/fonts/RobotoMono-Regular.ttf");
     
     Simulation simulation(window, font);
