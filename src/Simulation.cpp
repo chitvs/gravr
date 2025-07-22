@@ -56,7 +56,7 @@ Simulation::Simulation(sf::RenderWindow& window, const sf::Font& font)
     particleShape.setOrigin(particleOrigin);
     particleShape.setPosition(sf::Vector2f(WINDOW_WIDTH / 2, PARTICLE_PIXELS_HEIGHT));
 
-    uiManager.setupUI(mass);
+    uiManager.setupUI(mass, height);
 }
 
 void Simulation::resetSimulation() {
@@ -88,7 +88,7 @@ void Simulation::run() {
                 simulationFinished = false;
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Backspace)) {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Backspace) && !simulationFinished) {
                 isPaused = true;
                 totalClock.stop();
                 frameClock.stop();
