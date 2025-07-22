@@ -14,7 +14,7 @@ Gravr is a real-time 2D physics simulation that models falling objects under the
 
 ## Example
 
-![Example](gravr.gif)
+![Example](assets/gravr.gif)
 
 ## Physics model
 
@@ -93,16 +93,16 @@ Gravr assigns a label based on the selected mass:
 
 | Mass Range (kg) | Ball Type             |
 | --------------- | --------------------- |
-| 0.001 – 0.003   | Ping Pong             |
-| 0.003 – 0.05    | Racquet Ball          |
-| 0.05 – 0.065    | Tennis Ball           |
+| 0.001 – 0.003   | Ping pong             |
+| 0.003 – 0.05    | Racquet ball          |
+| 0.05 – 0.065    | Tennis ball           |
 | 0.065 – 0.16    | Baseball              |
-| 0.16 – 0.5      | Soccer Ball           |
+| 0.16 – 0.5      | Soccer ball           |
 | 0.5 – 0.7       | Basketball            |
-| 0.7 – 8.0       | Bowling Ball          |
-| 8.0 – 20.0      | Medicine Ball (Light) |
-| 20.0 – 50.0     | Medicine Ball (Heavy) |
-| 50.0 – 100.0    | Industrial Ball       |
+| 0.7 – 8.0       | Bowling ball          |
+| 8.0 – 20.0      | Light medicine ball   |
+| 20.0 – 50.0     | Heavy medicine ball   |
+| 50.0 – 100.0    | Industrial ball       |
 
 ## Project structure
 
