@@ -40,6 +40,7 @@ UIManager::UIManager(const sf::Font& font) : font(font),
     stopText(font, "Press Backspace to stop the simulation, 0 to reset, Esc to quit"),
     resumeText(font, "Press Enter to resume the simulation"),
     massText(font, ""),
+    heightStartedText(font, ""),
     startText(font, "Press Enter to start the simulation") {
     
     // Stop
@@ -70,7 +71,7 @@ UIManager::UIManager(const sf::Font& font) : font(font),
     startText.setPosition(startTextPosition);
 }
 
-void UIManager::setupUI(float mass) {
+void UIManager::setupUI(float mass, float height) {
     // Mass and ball info
     std::ostringstream massStream;
     massStream << std::fixed << std::setprecision(3) << mass;
@@ -88,25 +89,38 @@ void UIManager::setupUI(float mass) {
     else if (mass <= 0.7f) // ~567-650g for a standard size 7 basketball
         ballType = " (basketball)";
     else if (mass <= 8.0f) // Up to ~7.26kg for a heavy bowling ball or shot put
-        ballType = " (bowling ball / shot put)";
+        ballType = " (bowling ball)";
     else if (mass <= 20.0f) // Common range for heavier medicine balls
-        ballType = " (medicine ball - light)";
+        ballType = " (light medicine ball)";
     else if (mass <= 50.0f) // Range for very heavy medicine balls or specialized training balls
-        ballType = " (medicine ball - heavy)";
+        ballType = " (heavy medicine ball)";
     else if (mass <= 100.0f) // Up to 100kg for extremely heavy training balls or industrial spherical objects
-        ballType = " (industrial / very heavy ball)";
+        ballType = " (industrial ball)";
     else // For any mass greater than 100kg
         ballType = " (extremely heavy / undefined ball)";
     
     std::string massString = "Mass: " + massStream.str() + " kg" + ballType;
     massText = sf::Text(font, massString);
-    massText.setCharacterSize(24);
+    massText.setCharacterSize(20);
     massText.setFillColor(sf::Color::White);
     sf::FloatRect massTextBounds = massText.getLocalBounds();
     sf::Vector2f massTextOrigin(massTextBounds.position.x, massTextBounds.position.y + massTextBounds.size.y);
     massText.setOrigin(massTextOrigin);
     sf::Vector2f massTextPosition = sf::Vector2f(PADDING, WINDOW_HEIGHT - PADDING);
     massText.setPosition(massTextPosition);
+
+    std::ostringstream heightStartedStream;
+    heightStartedStream << std::fixed << std::setprecision(3) << height;
+
+    std::string heightStartedString = "Height: " + heightStartedStream.str() + " m";
+    heightStartedText = sf::Text(font, heightStartedString);
+    heightStartedText.setCharacterSize(20);
+    heightStartedText.setFillColor(sf::Color::White);
+    sf::FloatRect heightStartedTextBounds = heightStartedText.getLocalBounds();
+    sf::Vector2f heightStartedTextOrigin(heightStartedTextBounds.position.x, heightStartedTextBounds.position.y + heightStartedTextBounds.size.y);
+    heightStartedText.setOrigin(heightStartedTextOrigin);
+    sf::Vector2f heightStartedTextPosition = sf::Vector2f(PADDING, WINDOW_HEIGHT - PADDING*4);
+    heightStartedText.setPosition(heightStartedTextPosition);
 }
 
 void UIManager::drawStartScreen(sf::RenderWindow& window) {
@@ -143,6 +157,7 @@ void UIManager::drawSimulationUI(sf::RenderWindow& window, const Particle& parti
     window.draw(heightText);
     window.draw(stopText);
     window.draw(massText);
+    window.draw(heightStartedText);
 }
 
 void UIManager::drawPauseScreen(sf::RenderWindow& window) {
@@ -175,5 +190,6 @@ void UIManager::drawFinishedScreen(sf::RenderWindow& window, const Particle& par
 
     window.draw(stopText);
     window.draw(massText);
+    window.draw(heightStartedText);
     window.draw(finishedTimeText);
 }

@@ -35,11 +35,12 @@ private:
     sf::Text stopText;
     sf::Text resumeText;
     sf::Text massText;
+    sf::Text heightStartedText;
     sf::Text startText;
 
 public:
     UIManager(const sf::Font& font);
-    void setupUI(float mass);
+    void setupUI(float mass, float height);
     void drawStartScreen(sf::RenderWindow& window);
     void drawSimulationUI(sf::RenderWindow& window, const Particle& particle);
     void drawPauseScreen(sf::RenderWindow& window);
