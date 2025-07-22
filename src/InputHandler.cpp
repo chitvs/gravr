@@ -47,7 +47,7 @@ float InputHandler::getMass(sf::RenderWindow& window, const sf::Font& font){
     promptText.setPosition(promptTextPosition);
 
     // PromptNote
-    sf::String promptNoteString = "*Note: mass must be between 0.01 kg and 100 kg.";
+    sf::String promptNoteString = "*Note: mass must be between 0.001 kg and 100 kg.";
     sf::Text promptNoteText(font, promptNoteString);
     promptNoteText.setCharacterSize(14);
     promptNoteText.setFillColor(sf::Color::White);
@@ -95,7 +95,7 @@ float InputHandler::getMass(sf::RenderWindow& window, const sf::Font& font){
                         if (!userInputString.isEmpty()) {
                             try {
                                 mass = std::stof(userInputString.toAnsiString());
-                                if (mass >= 0.01f && mass <= 100.0f)
+                                if (mass >= 0.001f && mass <= 100.0f)
                                     inputDone = true;
                             } catch (...) {
                             }
