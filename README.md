@@ -10,7 +10,7 @@ Gravr is a real-time 2D physics simulation that models falling objects under the
 * Ground collision with energy loss (coefficient of restitution)
 * Real-time graphical display with height, velocity, and timer
 * User controls for pausing, resuming, and resetting the simulation
-* Adjustable mass (0.01–100 kg) and height (1–10 m)
+* Adjustable mass (0.001–100 kg) and height (1–10 m)
 
 ## Example
 
