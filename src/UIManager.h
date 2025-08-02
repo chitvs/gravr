@@ -1,5 +1,5 @@
 /*
- * Gravr - Simulating physics with SFML
+ * Gravr -- Simulating physics with SFML
  * 
  * MIT License
  * Copyright (c) 2025 Alessandro Chitarrini
